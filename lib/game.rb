@@ -11,9 +11,8 @@ class Game
   end
 
   def normalize_letter(letter)
-    letter = 'E' if letter == 'Ё'
-    letter = 'И' if letter == 'Й'
-    return letter
+    'E' if letter == 'Ё'
+    'И' if letter == 'Й'
   end
 
   def normalized_letters
@@ -35,7 +34,7 @@ class Game
   end
 
   def wrongs
-    return @user_guesses - normalized_letters
+    @user_guesses - normalized_letters
   end
 
   def over?

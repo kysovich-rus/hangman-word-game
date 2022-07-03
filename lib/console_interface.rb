@@ -16,23 +16,23 @@ class ConsoleInterface
     GAME_SCREEN
 
     if @game.won?
-      puts "Победа!"
+      puts 'Победа!'
     elsif @game.lost?
       puts "Помянем молодого, словом было #{@game.word}"
     end
   end
 
   def get_input
-    print "Введите букву: "
+    print 'Введите букву: '
     $stdin.gets[0].upcase
   end
 
   def figure
-    return FIGURES[@game.wrongs.size]
+    FIGURES[@game.wrongs.size]
   end
 
   def show_word
-    @game.unguessed_letters.map{ |letter| letter == nil ? '_' : letter }.join(' ')
+    @game.unguessed_letters.map{ |letter| letter || '_' }.join(' ')
   end
 
   def show_wrongs
