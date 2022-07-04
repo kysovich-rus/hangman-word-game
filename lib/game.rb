@@ -11,8 +11,9 @@ class Game
   end
 
   def normalize_letter(letter)
-    'E' if letter == 'Ё'
-    'И' if letter == 'Й'
+    return 'E' if letter == 'Ё'
+    return 'И' if letter == 'Й'
+    letter
   end
 
   def normalized_letters
@@ -26,7 +27,7 @@ class Game
   end
 
   def unguessed_letters
-    result = @letters.map { |letter| @user_guesses.include?(normalize_letter(letter)) ? letter : nil }
+    result = @letters.map { |letter| letter if @user_guesses.include?(normalize_letter(letter)) }
   end
 
   def word
